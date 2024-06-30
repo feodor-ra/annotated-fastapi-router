@@ -1,0 +1,148 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
+
+[tool.poetry]
+authors = ["Fedor Ratschew <feodor.ra@me.com>"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: FastAPI",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+description = "FastAPI annotated api routed"
+keywords = [
+    "annotated",
+    "fastapi",
+]
+license = "MIT"
+name = "annotated_fastapi_router"
+readme = "README.md"
+repository = "https://github.com/feodor-ra/annotated-fastapi-router"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+fastapi = ">=0.100.0"
+pyhumps = "^3.8.0"
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+httpx = "^0.27.0"
+poetry = "^1.8.3"
+pre-commit = "^3.7.1"
+pyright = "1.1.369"
+pytest = "^8.2.2"
+ruff = "^0.4.10"
+toml-sort = "^0.23.1"
+uvicorn = "^0.30.1"
+yamlfix = "^1.16.0"
+
+[tool.poetry.scripts]
+run-use-errors = "examples:errors"
+run-use-status = "examples:status"
+
+[tool.tomlsort]
+all = true
+ignore_case = true
+in_place = true
+no_block_comments = true
+no_inline_comments = true
+no_sort_tables = true
+sort_inline_arrays = true
+sort_inline_tables = true
+sort_table_keys = true
+spaces_before_inline_comment = 2
+spaces_indent_inline_array = 4
+trailing_comma_inline_array = true
+
+[tool.ruff]
+indent-width = 4
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+ignore = [
+    'ANN401',
+    'B008',
+    'COM812',
+    'ISC001',
+    'PLR0913',
+    'Q000',
+    'Q003',
+    'TRY003',
+]
+select = [
+    'A',
+    'ANN',
+    'ARG',
+    'ASYNC',
+    'B',
+    'BLE',
+    'C4',
+    'C90',
+    'COM',
+    'E',
+    'EXE',
+    'F',
+    'FA',
+    'FBT',
+    'FIX',
+    'G',
+    'I',
+    'ICN',
+    'INP',
+    'ISC',
+    'N',
+    'PGH',
+    'PIE',
+    'PLC',
+    'PLE',
+    'PLR',
+    'PLW',
+    'PTH',
+    'Q',
+    'RET',
+    'RSE',
+    'RUF',
+    'S',
+    'SIM',
+    'SLF',
+    'T10',
+    'TCH',
+    'TD',
+    'TID',
+    'TRIO',
+    'TRY',
+    'UP',
+    'W',
+    'YTT',
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/*" = [
+    "ANN001",
+    "ANN201",
+    "S101",
+]
+
+[tool.ruff.format]
+docstring-code-format = true
+indent-style = "space"
+quote-style = "double"
+
+[tool.pyright]
+exclude = [
+    "examples/**/*.py",
+    "tests/**/*.py",
+]
+pythonVersion = '3.12'
+typeCheckingMode = "standard"
+
+[tool.yamlfix]
+allow_duplicate_keys = true
