@@ -48,12 +48,12 @@ router.add_api_route("/my_endpoint", my_endpoint, methods=["POST"])
 
 В результате swagger будет содержать следующую OpenAPI-схему:
 
-![GET request swagger](./docs/use_status_get.png)
-![POST request swagger](./docs/use_status_post.png)
+![GET request swagger](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/use_status_get.png)
+![POST request swagger](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/use_status_post.png)
 
 При запросе статус код так же будет проставлен в ответ:
 
-![POST response swagger](./docs/use_status_get_response.png)
+![POST response swagger](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/use_status_get_response.png)
 
 Однако если статус код будет указан явно в декораторе или при добавлении в роутер, `Status` в аннотации будет проигнорирован.
 
@@ -68,8 +68,8 @@ router.add_api_route("/my_endpoint", my_endpoint, methods=["POST"])
 router.add_api_route("/my_endpoint_too", my_endpoint, status_code=HTTPStatus.CREATED, methods=["POST"])
 ```
 
-![GET request swagger keep](./docs/keep_status_get_swagger.png)
-![POST request swagger keep](./docs/keep_status_post_swagger.png)
+![GET request swagger keep](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/keep_status_get_swagger.png)
+![POST request swagger keep](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/keep_status_post_swagger.png)
 
 **Важно:** `Status` принимает в себя только перечисления из `HTTPStatus`,
 на любые другие объекты будет подыматься ошибка `TypeError`.
@@ -135,8 +135,8 @@ async def endpoint(how_iam: str) -> Annotated[ResponseModel, Errors[MyError, Oth
 
 Таким образом будет построены две модели ошибок – `MyEndpointPOSTBadRequest` и `MyEndpointGETBadRequest`.
 
-![Build error model GET](./docs/build_error_model_get.png)
-![Build error model POST](./docs/build_error_model_post.png)
+![Build error model GET](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/build_error_model_get.png)
+![Build error model POST](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/build_error_model_post.png)
 
 Имя модели генерируется из пути, методов (если указаны) роута и phrase статус-кода ошибки.
 Делается это потому что для `fastapi<=0.95.0` требуется что бы все названия моделей (если они отличаются) имели уникальные имена.
@@ -160,7 +160,7 @@ async def endpoint(how_iam: str) -> Annotated[ResponseModel, Errors[MyError, Oth
     raise MyError("I don't know you")
 ```
 
-![Keep responses data model](./docs/keep_build_error_model.png)
+![Keep responses data model](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/keep_build_error_model.png)
 
 Для того что бы автоматически отлавливать ошибки из эндпоинтов и указывать в ответе тот статус-код, который в указан в них,
 необходимо добавить в `FastAPI` приложение обработчик ошибок `ResponseError.handler`.
@@ -169,8 +169,8 @@ async def endpoint(how_iam: str) -> Annotated[ResponseModel, Errors[MyError, Oth
 app.add_exception_handler(ResponseError, ResponseError.handler)
 ```
 
-![Handle MyError](./docs/handle_my_error.png)
-![Handle OtherError](./docs/handle_other_error.png)
+![Handle MyError](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/handle_my_error.png)
+![Handle OtherError](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/handle_other_error.png)
 
 ## Examples
 
@@ -205,12 +205,12 @@ router.add_api_route("/my_endpoint", my_endpoint, methods=["POST"])
 
 As a result, the swagger will contain the following OpenAPI schema:
 
-![GET request swagger](./docs/use_status_get.png)
-![POST request swagger](./docs/use_status_post.png)
+![GET request swagger](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/use_status_get.png)
+![POST request swagger](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/use_status_post.png)
 
 When the endpoint is requested, the status code will also be included in the response:
 
-![POST response swagger](./docs/use_status_get_response.png)
+![POST response swagger](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/use_status_get_response.png)
 
 However, if the status code is explicitly provided in the decorator or when adding it to the router, the `Status` in the annotation will be ignored.
 
@@ -225,8 +225,8 @@ router.add_api_route("/my_endpoint", my_endpoint, methods=["POST"])
 router.add_api_route("/my_endpoint_too", my_endpoint, status_code=HTTPStatus.CREATED, methods=["POST"])
 ```
 
-![GET request swagger keep](./docs/keep_status_get_swagger.png)
-![POST request swagger keep](./docs/keep_status_post_swagger.png)
+![GET request swagger keep](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/keep_status_get_swagger.png)
+![POST request swagger keep](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/keep_status_post_swagger.png)
 
 **Important**: `Status` only accepts enumerations from `HTTPStatus`; any other objects will raise a `TypeError`
 
@@ -291,8 +291,8 @@ async def endpoint(how_iam: str) -> Annotated[ResponseModel, Errors[MyError, Oth
 
 In this way, two error models will be built - `MyEndpointPOSTBadRequest` and `MyEndpointGETBadRequest`.
 
-![Build error model GET](./docs/build_error_model_get.png)
-![Build error model POST](./docs/build_error_model_post.pngT
+![Build error model GET](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/build_error_model_get.png)
+![Build error model POST](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/build_error_model_post.png)
 
 The model name is generated from the path, methods (if specified) of the route, and the status code error phrase.
 This is done because for `fastapi<=0.95.0`, all model names (if they differ) must have unique names.
@@ -318,7 +318,7 @@ async def endpoint(how_iam: str) -> Annotated[ResponseModel, Errors[MyError, Oth
     raise MyError("I don't know you")
 ```
 
-![Keep responses data model](./docs/keep_build_error_model.png)
+![Keep responses data model](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/keep_build_error_model.png)
 
 To automatically catch errors from endpoints and include the status code specified in them in the response, you need to add the error handler `ResponseError.handler` to the `FastAPI` application.
 
@@ -326,5 +326,5 @@ To automatically catch errors from endpoints and include the status code specifi
 app.add_exception_handler(ResponseError, ResponseError.handler)
 ```
 
-![Handle MyError](./docs/handle_my_error.png)
-![Handle OtherError](./docs/handle_other_error.png)
+![Handle MyError](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/handle_my_error.png)
+![Handle OtherError](https://github.com/feodor-ra/annotated-fastapi-router/blob/f4a0b2028ba5ceedca76de6af491f9ef6e312c3a/docs/handle_other_error.png)
